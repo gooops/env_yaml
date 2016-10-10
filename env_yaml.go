@@ -1,8 +1,6 @@
 package env_yaml
 
 import (
-	"log"
-
 	"gopkg.in/yaml.v2"
 
 	"github.com/gooops/env_strings"
@@ -40,7 +38,6 @@ func (p *EnvYaml) Unmarshal(data []byte, v interface{}) (err error) {
 	if strData, err = p.Execute(string(data)); err != nil {
 		return
 	}
-	log.Println(strData)
 	err = yaml.Unmarshal([]byte(strData), v)
 
 	return
