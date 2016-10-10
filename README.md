@@ -12,11 +12,10 @@ Sometimes we need config file as following:
 `db.conf`
 
 ```yaml
-{
-	"host":"127.0.0.1",
-	"password":"3306",
-	"timeout": 1000
-}
+---
+"host": "127.0.0.1"
+"password": "3306"
+"timeout": 1000
 ```
 
 but, when we management more and more server and serivce, and if we need change the password or ip, it was a disaster.
@@ -29,7 +28,7 @@ So, we just want use config like this.
 ---
 host: "{{.host}}"
 password: "{{.password}}"
-timeout: "{{.timeout}}"
+timeout: {{.timeout}}
 ```
 
 We use golang's template to replace values into the config while we read the yaml file configs.
